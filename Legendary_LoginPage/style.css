@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+  
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0,0,0, 0.8)), url('bg.jpg');
+    background-size: cover;
+    font-weight: 400;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+}
+
+.main {
+    position: relative;
+    width: 40rem;
+    height: 50rem;
+}
+
+html, body, .main, .page {
+    overflow: visible !important;
+    position: relative;
+}
+
+
+.main .page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white for glass effect */
+    backdrop-filter: blur(10px); /* Frosted glass blur effect */
+    border-radius: 1.7rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for glass */
+}
+
+/* Water drop effect */
+.page::before,
+.page::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3); /* Slightly opaque for droplet */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glow effect */
+    animation: drip 2s infinite ease-in-out;
+}
+
+.page::before {
+    width: 15px;
+    height: 15px;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+.page::after {
+    width: 10px;
+    height: 10px;
+    top: 20%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+
+/* Animation for water drop effect */
+@keyframes drip {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(20px) scale(1.2);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(40px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+.page h2{
+    font-size: 4rem;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.item {
+    position: relative;
+    width: 32rem;
+    margin: 2.5rem 0;
+}
+
+.item i,
+.item label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    color: #9b9b9b;
+    padding: 0 .5rem;
+    pointer-events: none;
+    transition: all .5s ease;
+}
+
+.item i {
+    left: .5rem;
+}
+.item label {
+    left: 2.3rem;
+}
+.item input {
+    width: 100%;
+    height: 4.5rem;
+    padding: 0 2rem;
+    border-radius: 1.2rem;
+    border: none;
+    outline: none;
+    border: .05rem solid #ffffff;
+    font-size: 1.7rem;
+    color: #ffffff;
+    background: transparent;
+}
+
+.item input:focus~label,
+.item input:valid~label,
+.item input:focus~i,
+.item input:valid~i {
+    top: 0;
+    font-size: 1.1rem;
+    color: #00ddeb; /* Changed from pink to cyan */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Added for readability */
+    /* Removed background-color: #fff */
+}
+
+.forgot-pass {
+    margin: -1.5rem 0 1.5rem;
+}
+.forgot-pass a {
+    color: #ffffff; /* Changed from red to white */
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: all .5s ease;
+}
+.forgot-pass a:hover {
+    color: #00ddeb; /* Changed to cyan */
+    text-decoration: underline;
+}
+
+.btn {
+background: linear-gradient(to right, #0077b6, #00ddeb);
+color: #fff;
+width: 32rem;
+height: 4rem;
+font-size: 1.8rem;
+font-weight: 500;
+outline: none;
+border: none;
+border-radius: 1rem;
+cursor: pointer;
+box-shadow: 0 .2rem 1rem rgba(0, 0, 0, 0.4);
+transition: all 0.3s ease-in-out;
+position: relative;
+z-index: 100000;
+}
+
+  
+
+.btn:hover {
+    background: linear-gradient(to right, #023e8a, #00a8b5); /* Changed to darker blue-to-teal */
+    scale: 1.04;
+}
+.link {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #222;
+    margin: 2.5rem 0;
+}
+.link a {
+    color: #ffffff; /* Changed from green to white */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all .5s ease;
+}
+.link a:hover {
+    color: #00ddeb; /* Changed from pink to cyan */
+}
+
+/* ===========Animation============== */
+.main .sign-up {
+    transform: rotate(7deg);
+}
+.main.animated-login .page.login {
+    animation: login-flip 1s ease-in-out forwards;
+}
+
+@keyframes login-flip {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-50rem) scale(1.1);
+    }
+
+    100% {
+        transform: translateX(0) rotate(7deg) scale(1);
+    }
+}
+
+.main.animated-login .page.sign-up {
+    animation: rotatecard .7s ease-in-out forwards;
+    animation-delay: .3s;
+}
+
+@keyframes rotatecard {
+    0% {
+        transform: rotate(7deg);
+    }
+
+    100% {
+        transform: rotate(0);
+        z-index: 1;
+    }
+}
+
+.main.animated-signup .page.sign-up {
+    animation: signup-flip 1s ease-in-out forwards;
+}
+
+@keyframes signup-flip {
+    0% {
+        transform: translateX(0);
+        z-index: 10;
+    }
+
+    50%{
+        transform: translateX(50rem) scale(1.1);
+    }
+
+    100%{
+        transform: translateX(0) rotate(7deg) scale(1);
+    }
+}
+
+.main.animated-signup .page.login {
+    transform: rotate(7deg);
+    animation: rotatecard .7s ease-in-out forwards;
+    animation-delay: .3s;
+}
+
+@keyframes rotatecard {
+    0% {
+        transform: rotate(7deg);
+    }
+    100% {
+        transform: rotate(0);
+        z-index: 10;
+    }
+}
